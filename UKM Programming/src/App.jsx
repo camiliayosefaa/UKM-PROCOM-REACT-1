@@ -1,31 +1,37 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
-  const [angka1, setAngka1] = useState("null");
-  const [angka2, setAngka2] = useState("null");
-  const result = angka1+angka2
 
-  //handler
-  const Angka1Change = (event) =>{
-    setAngka1(Number(event.target.value));
-  }
-  const Angka2Change = (event) =>{
-    setAngka2(Number(event.target.value));
-  }
+  const [quotes, setQuotes] = useState(null);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      const res = await axios.get("https://strapi-rygs.onrender.com/api/quotes")
+      setQuotes(res.data.data)
+    }
+
+    fetchData()
+
+  }, []);
+
   return (
-    <form>
-      <div>
-        <input type="number" value={angka1} onChange={Angka1Change} />
-      </div>
-      <div>
-      <input type="number" value={angka2} onChange={Angka2Change} />
-      </div>
-      <h2>Hasil : {result} </h2>
-    </form>
-  )
-}
+    <div>
+      {quotes?.map((item, index) => (
+        
+        <div>
+          {item.attributes.Quote}
+          <br />
+          - {item.attributes.Author}
+          <br />
+        </div>
 
+      ))}
+
+
+    </div>
+  );
+}
 export default App
