@@ -1,36 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [bilangan1, setCount1] = useState(2);
-  const [bilangan2, setCount2] = useState(3);
-  const hasil = Number(bilangan1) + Number(bilangan2);
+  const [angka1, setAngka1] = useState("null");
+  const [angka2, setAngka2] = useState("null");
+  const result = angka1+angka2
 
+  //handler
+  const Angka1Change = (event) =>{
+    setAngka1(Number(event.target.value));
+  }
+  const Angka2Change = (event) =>{
+    setAngka2(Number(event.target.value));
+  }
   return (
-    <>
-      <h1>Kalkulator Sederhana</h1>
-      <h2>Penjumlahan</h2>
-      <div className="card">
-        <input 
-          value={bilangan1}
-          onChange={e => setCount1(e.target.value)}
-          type='number'
-        /> <br />
-        <input 
-          value={bilangan2}
-          onChange={e => setCount2(e.target.value)}
-          type='number'
-        />
-        <p>
-          Hasil : {hasil}
-        </p>
+    <form>
+      <div>
+        <input type="number" value={angka1} onChange={Angka1Change} />
       </div>
-      <p className="read-the-docs">
-        By yosefa
-      </p>
-    </>
+      <div>
+      <input type="number" value={angka2} onChange={Angka2Change} />
+      </div>
+      <h2>Hasil : {result} </h2>
+    </form>
   )
 }
 
