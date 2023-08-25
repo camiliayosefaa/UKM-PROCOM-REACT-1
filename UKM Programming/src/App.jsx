@@ -42,7 +42,6 @@ function App() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>NPM</th>
               <th>Nama</th>
               <th>Jenis Kelamin</th>
               <th>Alamat</th>
@@ -53,7 +52,6 @@ function App() {
             {item.data.pagi.map((item, index)=>(
               <tr key={index}>
                 <td>{index+1}</td>
-                <td>2125250001</td>
                 <td>{item.nama}</td>
                 <td>{item.jenis_kelamin}</td>
                 <td>{item.alamat}</td>
@@ -69,7 +67,6 @@ function App() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>NPM</th>
               <th>Nama</th>
               <th>Jenis Kelamin</th>
               <th>Alamat</th>
@@ -80,7 +77,6 @@ function App() {
             {item.data.malam.map((item, index)=>(
               <tr key={index}>
                 <td>{index+1}</td>
-                <td>2125250001</td>
                 <td>{item.nama}</td>
                 <td>{item.jenis_kelamin}</td>
                 <td>{item.alamat}</td>
@@ -97,7 +93,6 @@ function App() {
             <thead>
             <tr>
               <th>ID</th>
-              <th>NPM</th>
               <th>Nama</th>
               <th>Jenis Kelamin</th>
               <th>Alamat</th>
@@ -108,7 +103,6 @@ function App() {
             {item.data.cuti.map((item, index)=>(
               <tr key={index}>
                 <td>{index+1}</td>
-                <td>2125250001</td>
                 <td>{item.nama}</td>
                 <td>{item.jenis_kelamin}</td>
                 <td>{item.alamat}</td>
